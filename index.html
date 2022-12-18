@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.flex-container {
+  /* We first create a flex layout context */
+  display: flex;
+
+  /* Then we define the flow direction 
+     and if we allow the items to wrap 
+   * Remember this is the same as:
+   * flex-direction: row;
+   * flex-wrap: wrap;
+   */
+  flex-flow: row wrap;
+
+  /* Then we define how is distributed the remaining space */
+  justify-content: space-around;
+}
+
+.navigation {
+  display: flex;
+  flex-flow: row wrap;
+  /* This aligns items to the end line on main-axis */
+  justify-content: flex-end;
+}
+
+.wrapper {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+/* We tell all items to be 100% width, via flex-basis */
+.wrapper > * {
+  flex: 1 100%;
+}
+
+/* We rely on source order for mobile-first approach
+ * in this case:
+ * 1. header
+ * 2. article
+ * 3. aside 1
+ * 4. aside 2
+ * 5. footer
+ */
+
+/* Large screens */
+@media all and (min-width: 800px) {
+  /* We invert order of first sidebar and main
+   * And tell the main element to take twice as much width as the other two sidebars 
+   */
+  .main { flex: 3 0px; }
+  .aside-1 { order: 1; }
+  .main    { order: 2; }
+  .aside-2 { order: 3; }
+  .footer  { order: 4; }
+}
+
+</style>
+</head>
+
+<body>
+
+	<h1>Metallica</h1>
+	<img class="img-fluid" src="image/image1.jpg" alt="..." />
+
+<div class="flex-container">
+  <div>
+  	<p> Metallica was formed on October 28 1981. They came together when Lars Ulrich and James Hetfeild put out a local ad to start a band.</p>
+  	<img class="img-fluid" src="image/image2.jpg" alt="..." />
+  </div>
+  <div>
+  	<p> Their first demo was <em>No Life'Til Leather </em>, which was released through tape recorders in the LA area. </p>
+  	<img class="img-fluid" src="image/image3.jpg" alt="..." />
+  </div>
+  <div>
+  	<p> Master of puppets was their 3rd album which came out in 1985 by the Sweet Silence/Rassmussen combo of producers.</p>
+  	<img class="img-fluid" src="image/image4.jpg" alt="..." /> 
+  </div>  
+  <div>
+  	<p> Master of Puppets reached the top 30 hits chart and expanded the band's fanbase.</p>
+  	<img class="img-fluid" src="image/image5.jpg" alt="..." />
+  </div>
+  <div>
+  	<p> Stranger Things had resurfaced Metallica's song <em> Master of Puppets </em> when the character Eddie Muson played the guitar solo in Season 3 to help the other characters escape demigorgons.</p>
+  	<img class="img-fluid" src="image/image6.jpg" alt="..." />
+  </div>
+</div>
+
+</body>
+</html>
